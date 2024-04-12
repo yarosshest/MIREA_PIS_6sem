@@ -1,0 +1,72 @@
+\ProvidesPackage{Style}
+
+
+
+\frenchspacing
+\pagestyle{plain}
+\RequirePackage{enumitem}
+\RequirePackage{multirow}
+\RequirePackage{longtable}
+\RequirePackage{graphicx}
+\setlist{nosep}
+\setlist[enumerate]{label*=\arabic*.}
+\setlist[description]{style=nextline}
+\usepackage[left=3cm, right=1.5cm, vmargin=2cm]{geometry}
+\linespread{1.5} % line spacing 1.5
+\usepackage{indentfirst} % indent first paragraph
+\setlength{\parindent}{1.25cm}
+\sloppy
+\usepackage{cmap} % for pdfLaTeX
+\usepackage[T1,T2A]{fontenc} % correct encoding for pdfLaTeX
+\usepackage[utf8]{inputenc} % correct encoding source file
+\usepackage[english,russian]{babel} % correct language
+\usepackage[labelsep=period]{caption}
+\usepackage{longtable}
+
+\linespread{1.5} % line spacing 1.5
+\setlength{\parindent}{1.25cm}
+\sloppy
+
+% for graphics
+\usepackage{amsmath}
+
+
+\renewcommand{\figurename}{Рисунок}
+
+\newcommand{\img}[2] {
+	\begin{figure}[ht!]
+		\center{\includegraphics[width=0.9\textwidth]{#1}}
+		\caption{#2}
+		\label{fig:#1}
+	\end{figure}
+}
+
+\renewenvironment{enumerate}{
+	\begin{list}{\labelenumi}
+	  {\usecounter{enumi} \def\makelabel##1{\hss ##1}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+}}{\end{list}}
+
+\renewenvironment{itemize}{
+	\begin{list}{\labelitemi}
+	  {\def\makelabel##1{\hss ##1}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+}}{\end{list}}
+
+
+\newenvironment{image}{
+	\begin{figure}[h!tp]
+		\centering
+		}{
+	\end{figure}
+}
+
+\newcommand\includegrph[1]{\includegraphics[width=1\textwidth]{#1}}
